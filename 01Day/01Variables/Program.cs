@@ -50,6 +50,7 @@ namespace _01Variables {
             //reference1.value: 20 , reference2.value: 20
 
             // Reference Types are:
+            //string
             //All arrays, even if their elements are value types
             //Class
             //Delegates
@@ -82,7 +83,8 @@ namespace _01Variables {
             Console.WriteLine($"string1: {string1} , string2: {string2}");
             // string1: 20 , string2: 10
 
-            //Conclusion: the string is value type variable
+            //Conclusion: 
+            // The string is reference type variable , but behaves like value type variable.
 
             Console.ReadKey();
         }
