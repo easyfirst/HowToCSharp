@@ -34,6 +34,8 @@ namespace _01Variables {
 
             //Console.ReadKey();
 
+            // ---------------------------- * * * ----------------------------
+
             // Reference Type
 
             var reference1 = new OwnReference();
@@ -55,6 +57,8 @@ namespace _01Variables {
             //Class
             //Delegates
 
+            // ---------------------------- * * * ----------------------------
+
             var tempArray1 = new int[] { 10 };
 
             var tempArray2 = tempArray1;
@@ -66,6 +70,8 @@ namespace _01Variables {
 
             Console.WriteLine($"tempArray1: {tempArray1[0]} , tempArray2: {tempArray2[0]}");
             // tempArray1: 20 , tempArray2: 20
+
+            // ---------------------------- * * * ----------------------------
 
             // Array of chars
             var string1 = new string(new char[] { '1', '0' });
@@ -85,6 +91,8 @@ namespace _01Variables {
 
             //Conclusion: 
             // The string is reference type variable , but behaves like value type variable.
+
+            // ---------------------------- * * * ----------------------------
 
             Console.ReadKey();
         }
