@@ -50,10 +50,39 @@ namespace _01Variables {
             //reference1.value: 20 , reference2.value: 20
 
             // Reference Types are:
-            //String
             //All arrays, even if their elements are value types
             //Class
             //Delegates
+
+            var tempArray1 = new int[] { 10 };
+
+            var tempArray2 = tempArray1;
+
+            Console.WriteLine($"tempArray1: {tempArray1[0]} , tempArray2: {tempArray2[0]}");
+            // tempArray1: 10 , tempArray2: 10
+
+            tempArray2[0] = 20;
+
+            Console.WriteLine($"tempArray1: {tempArray1[0]} , tempArray2: {tempArray2[0]}");
+            // tempArray1: 20 , tempArray2: 20
+
+            // Array of chars
+            var string1 = new string(new char[] { '1', '0' });
+
+            //what really happening
+            //var string1 = "10";
+
+            var string2 = string1;
+
+            Console.WriteLine($"string1: {string1} , string2: {string2}");
+            // string1: 10 , string2: 10
+
+            string1 = "20";
+
+            Console.WriteLine($"string1: {string1} , string2: {string2}");
+            // string1: 20 , string2: 10
+
+            //Conclusion: the string is value type variable
 
             Console.ReadKey();
         }
