@@ -32,6 +32,29 @@ namespace _01Variables {
             // Value types are:
             //bool, byte, char, decimal, double, enum, float, int, long, sbyte, short, struct, uint, ulong, ushort
 
+            //Console.ReadKey();
+
+            // Reference Type
+
+            var reference1 = new OwnReference();
+            reference1.value = 10;
+
+            var reference2 = reference1;
+
+            Console.WriteLine($"reference1.value: {reference1.value} , reference2.value: {reference2.value}");
+            //reference1.value: 10 , reference2.value: 10
+
+            reference2.value = 20;
+
+            Console.WriteLine($"reference1.value: {reference1.value} , reference2.value: {reference2.value}");
+            //reference1.value: 20 , reference2.value: 20
+
+            // Reference Types are:
+            //String
+            //All arrays, even if their elements are value types
+            //Class
+            //Delegates
+
             Console.ReadKey();
         }
     }
