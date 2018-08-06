@@ -94,6 +94,41 @@ namespace _01Variables {
 
             // ---------------------------- * * * ----------------------------
 
+            // Own complex type of value
+
+            var ownValue1 = new OwnValue();
+            ownValue1.value = 10;
+            ownValue1.reference = new OwnReference { value = 10 };
+
+            //This format is the same like above !
+            //var ownValue1 = new OwnValue {
+            //
+            //    value = 10
+            //};
+
+            var ownValue2 = ownValue1;
+
+            Console.WriteLine($"ownValue1.value: {ownValue1.value} , ownValue2.value: {ownValue2.value}");
+            // ownValue1.value: 10 , ownValue2.value: 10
+
+            Console.WriteLine($"ownValue1.reference.value: {ownValue1.reference.value} , ownValue2.reference.value: {ownValue2.reference.value}");
+            // ownValue1.reference.value: 10 , ownValue2.reference.value: 10
+
+            ownValue1.value = 20;
+            ownValue1.reference.value = 20;
+
+            Console.WriteLine($"ownValue1.value: {ownValue1.value} , ownValue2.value: {ownValue2.value}");
+            // ownValue1.value: 20 , ownValue2.value: 10
+
+            Console.WriteLine($"ownValue1.reference.value: {ownValue1.reference.value} , ownValue2.reference.value: {ownValue2.reference.value}");
+            // ownValue1.reference.value: 20 , ownValue2.reference.value: 20
+
+            //Conclusion: 
+            // The value variable created with "struct" keyword  behaves like value type variable.
+            // But, the reference type variable in it BEHAVES like a reference type variable !!!
+
+            // ---------------------------- * * * ----------------------------
+
             Console.ReadKey();
         }
     }

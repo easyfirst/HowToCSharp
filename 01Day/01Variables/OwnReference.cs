@@ -1,5 +1,9 @@
 ﻿namespace _01Variables {
-    internal class OwnReference {
+
+    /// <summary>
+    /// Class definition, it determine the behaving of its variables.
+    /// </summary>
+    public class OwnReference {
 
         public int value;
     }
