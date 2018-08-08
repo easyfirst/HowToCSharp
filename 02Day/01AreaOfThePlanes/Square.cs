@@ -11,7 +11,7 @@ namespace _01AreaOfThePlanes
             this.side = side;
         }
 
-        public int Area()
+        public double Area()
         {
             return side * side;
         }
