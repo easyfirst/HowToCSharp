@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01AreaOfThePlanes", "01AreaOfThePlanes\01AreaOfThePlanes.csproj", "{CC82424A-C4F3-42F7-8DEE-B20838EF6529}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02FakeCoin", "02FakeCoin\02FakeCoin.csproj", "{830D6D2D-82B6-4AFF-A64E-11A7969B8599}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{CC82424A-C4F3-42F7-8DEE-B20838EF6529}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC82424A-C4F3-42F7-8DEE-B20838EF6529}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC82424A-C4F3-42F7-8DEE-B20838EF6529}.Release|Any CPU.Build.0 = Release|Any CPU
+		{830D6D2D-82B6-4AFF-A64E-11A7969B8599}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{830D6D2D-82B6-4AFF-A64E-11A7969B8599}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{830D6D2D-82B6-4AFF-A64E-11A7969B8599}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{830D6D2D-82B6-4AFF-A64E-11A7969B8599}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
