@@ -8,15 +8,21 @@ namespace _01AreaOfThePlanes
         {
             var square = new Square(side: 4);
 
-            Console.WriteLine($"A négyzet területe: {square.Area()}");
+            Console.WriteLine($"Area of the square: {square.Area()}");
 
             var circle = new Circle(radius: 5);
-            Console.WriteLine($"A kör területe: {circle.Area()}");
+            Console.WriteLine($"Area of the circle: {circle.Area()}");
 
             var triangle = new Triangle(trianglebase: 6, height: 4);
-            Console.WriteLine($"A háromszög területe: {triangle.Area()}");
+            Console.WriteLine($"Area of the triangle: {triangle.Area()}");
 
-            //területek összeadása
+            //Sum area:
+            var areasum = square.Area();
+
+            areasum = areasum + circle.Area();
+
+            areasum += triangle.Area();
+            Console.WriteLine($"The total area: {areasum}");
 
             Console.ReadLine();
         }
