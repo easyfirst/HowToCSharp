@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace _01AreaOfThePlanes
 {
@@ -23,6 +24,21 @@ namespace _01AreaOfThePlanes
 
             areasum += triangle.Area();
             Console.WriteLine($"The total area: {areasum}");
+
+
+            // With interface
+            var planes = new List<IPlane>();
+
+            planes.Add(square);
+            planes.Add(circle);
+            planes.Add(triangle);
+
+            var sum = 0;
+            foreach (var plane in planes)
+            {
+                sum += plane.Area();
+            }
+            Console.WriteLine($"The total area: {sum}");
 
             Console.ReadLine();
         }

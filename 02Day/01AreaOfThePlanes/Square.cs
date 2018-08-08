@@ -2,7 +2,7 @@
 
 namespace _01AreaOfThePlanes
 {
-    public class Square
+    public class Square :IPlane
     {
         private int side;
 

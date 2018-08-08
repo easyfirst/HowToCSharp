@@ -2,7 +2,7 @@
 
 namespace _01AreaOfThePlanes
 {
-    public class Circle
+    public class Circle :IPlane
     {
         private int radius;
 
