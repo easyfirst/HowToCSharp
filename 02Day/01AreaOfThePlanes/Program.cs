@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace _01AreaOfThePlanes
 {
@@ -33,12 +34,20 @@ namespace _01AreaOfThePlanes
             planes.Add(circle);
             planes.Add(triangle);
 
-            var sum = 0;
-            foreach (var plane in planes)
-            {
-                sum += plane.Area();
-            }
-            Console.WriteLine($"The total area: {sum}");
+            //var sum = 0;
+            //foreach (var plane in planes)
+            //{
+            //    sum += plane.Area();
+            //}
+            //Console.WriteLine($"The total area: {sum}");
+
+            //With Linq
+            //var sum = planes.Sum(x => x.Area());
+            //Console.WriteLine($"The total area: {sum}");
+
+            // or
+
+            Console.WriteLine($"The total area: {planes.Sum(x => x.Area())}");
 
             Console.ReadLine();
         }
