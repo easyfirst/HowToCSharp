@@ -9,6 +9,7 @@ namespace _01AreaOfThePlanes
         public Square(int side)
         {
             this.side = side;
+            this.Name = "square";
         }
 
         public override double Area()

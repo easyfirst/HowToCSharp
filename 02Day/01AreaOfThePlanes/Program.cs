@@ -34,6 +34,11 @@ namespace _01AreaOfThePlanes
             planes.Add(circle);
             planes.Add(triangle);
 
+            foreach (var plane in planes)
+            {
+                Console.WriteLine($"The name of plane:  {plane.Name} , area: {plane.Area()}");
+            }
+
             //var sum = 0;
             //foreach (var plane in planes)
             //{

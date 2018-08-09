@@ -11,6 +11,7 @@ namespace _01AreaOfThePlanes
         {
             this.trianglebase = trianglebase;
             this.height = height;
+            this.Name = "triangle";
         }
 
         public override double Area()

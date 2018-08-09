@@ -9,6 +9,7 @@ namespace _01AreaOfThePlanes
         public Circle(int radius)
         {
             this.radius = radius;
+            this.Name = "circle";
         }
 
         public override double Area()
