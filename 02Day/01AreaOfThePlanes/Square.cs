@@ -2,7 +2,7 @@
 
 namespace _01AreaOfThePlanes
 {
-    public class Square :IPlane
+    public class Square :Plane
     {
         private int side;
 
@@ -11,7 +11,7 @@ namespace _01AreaOfThePlanes
             this.side = side;
         }
 
-        public double Area()
+        public override double Area()
         {
             return side * side;
         }

@@ -2,7 +2,7 @@
 
 namespace _01AreaOfThePlanes
 {
-    public class Circle :IPlane
+    public class Circle :Plane
     {
         private int radius;
 
@@ -11,7 +11,7 @@ namespace _01AreaOfThePlanes
             this.radius = radius;
         }
 
-        public double Area()
+        public override double Area()
         {
             return (2 * radius * Math.PI);
         }

@@ -2,7 +2,7 @@
 
 namespace _01AreaOfThePlanes
 {
-    public class Triangle :IPlane
+    public class Triangle :Plane
     {
         private int trianglebase;
         private int height;
@@ -13,7 +13,7 @@ namespace _01AreaOfThePlanes
             this.height = height;
         }
 
-        public double Area()
+        public override double Area()
         {
             return (trianglebase * height) / 2;
         }

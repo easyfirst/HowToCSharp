@@ -28,7 +28,7 @@ namespace _01AreaOfThePlanes
 
 
             // With interface
-            var planes = new List<IPlane>();
+            var planes = new List<Plane>();
 
             planes.Add(square);
             planes.Add(circle);
