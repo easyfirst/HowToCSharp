@@ -6,7 +6,7 @@ namespace _02FakeCoin
     {
         static void Main(string[] args)
         {
-            var coin = new Coin();
+            Coin coin = new FakeCoin();
 
             Console.WriteLine("Result of coin collection:");
             for (int i = 0; i < 100; i++)
