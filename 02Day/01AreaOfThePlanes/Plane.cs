@@ -4,10 +4,15 @@ namespace _01AreaOfThePlanes
 {
     // Only in abstract class can contains abstract function.
     // So this class must be abstract.
-    public abstract class Plane : IPlane
+    public abstract class Plane : IPlane, IDisplayable
     {
         // Abstract class can contain non abstract properties too.
         public string Name { get; set; }
+
+        #region IDisplayable implementation
+        public int PosX { get ; set ; }
+        public int PosY { get ; set ; }
+        #endregion IDisplayable implementation
 
         /// <summary>
         /// Show the plane.
