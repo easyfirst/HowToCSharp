@@ -63,7 +63,7 @@
         /// </summary>
         ~Base()
         {
-            System.Console.WriteLine("This the finalizer of Base() class.");
+            System.Console.WriteLine($"This the finalizer of Base() class. Name: {Name} , Email: {Email}");
         }
     }
 }

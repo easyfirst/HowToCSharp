@@ -43,6 +43,14 @@ namespace _01ConstructorFinalizer
             Console.WriteLine($"The Third() class name: {t.Name} , email: {t.Email}");
             Console.WriteLine();
 
+            b = null;
+            m = null;
+            t = null;
+
+            //This code is necessary to force to run the Garbage Collector.
+            //
+            GC.Collect();
+
             Console.ReadLine();
         }
     }
