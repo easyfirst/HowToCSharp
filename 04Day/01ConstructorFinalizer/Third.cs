@@ -4,7 +4,7 @@
     {
         public Third()
         {
-            System.Console.WriteLine("This is the constructor of Third class");
+            System.Console.WriteLine("This is the constructor of Third class: Third()");
         }
     }
 }

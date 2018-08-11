@@ -4,7 +4,7 @@
     {
         public Middle()
         {
-            System.Console.WriteLine("This is the constructor of Middle class");
+            System.Console.WriteLine("This is the constructor of Middle class: Middle()");
         }
     }
 }
