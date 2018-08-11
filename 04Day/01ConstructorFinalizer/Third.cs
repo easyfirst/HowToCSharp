@@ -11,5 +11,10 @@
         {
             System.Console.WriteLine("This is the constructor of Third class: Third(string name, string email)");
         }
+
+        ~Third()
+        {
+            System.Console.WriteLine("This the finalizer of Third() class.");
+        }
     }
 }

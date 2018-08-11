@@ -16,5 +16,10 @@
         {
             System.Console.WriteLine("This is the constructor of Middle class: Middle(string name, string email)");
         }
+
+        ~Middle()
+        {
+            System.Console.WriteLine("This the finalizer of Middle() class.");
+        }
     }
 }

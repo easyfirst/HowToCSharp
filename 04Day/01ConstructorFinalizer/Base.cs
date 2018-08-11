@@ -53,5 +53,17 @@
         /// Read-only property: It is only readable, BUT it is writable in constructor !
         /// </summary>
         public string Email { get; }
+
+        /// <summary>
+        /// This is the filezier of this class.
+        /// - it is not invokable.
+        /// - it has no parameters.
+        /// - it doesn't return back.
+        /// - it will be invoked by framework
+        /// </summary>
+        ~Base()
+        {
+            System.Console.WriteLine("This the finalizer of Base() class.");
+        }
     }
 }
