@@ -71,21 +71,32 @@ namespace _01IDisposable
 
             if (dispose)
             { //it is called from the 'Dispose ()' function, so the managed parts have to be cleaned.
- 
+
                 //release an instance using a managed IDisposable interface
-                fileStream.Dispose();
-                fileStream = null;
+                // observing the null value not to get exception 
+                if (fileStream != null)
+                {
+                    fileStream.Dispose();
+                    fileStream = null;
+                }
 
                 //release a managed memory
-                managedMemory.Clear();
-                managedMemory = null;
+                if (managedMemory != null)
+                {
+                    managedMemory.Clear();
+                    managedMemory = null;
+                }
 
             }
 
-            //release an unmanaged memory
-            Marshal.FreeHGlobal(unmanagedMemory);
-            //we say to GC this memory is usable
-            GC.RemoveMemoryPressure(1000000);
+            // observing the zero value (uninitialized) not to get exception
+            if (unmanagedMemory != IntPtr.Zero)
+            {
+                //release an unmanaged memory
+                Marshal.FreeHGlobal(unmanagedMemory);
+                //we say to GC this memory is usable
+                GC.RemoveMemoryPressure(1000000);
+            }
 
             isDisposed = true;
         }
