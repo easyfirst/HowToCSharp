@@ -40,6 +40,28 @@ namespace _01IDisposable
         /// </summary>
         public void Dispose()
         {
+            Dispose(true);
+
+            // It takes this class out from Finalizer queue.
+            GC.SuppressFinalize(this);
+        }
+
+        /// <summary>
+        /// The finalizer of this class. If there is no pointer to point to this object,
+        /// then it runs sometime.
+        /// </summary>
+        ~ItselfCleaner()
+        {
+            Dispose(false);
+        }
+
+        /// <summary>
+        /// It's the 'real' cleaner function.
+        /// </summary>
+        /// <param name="dispose">This indicates whether it is called from the 'Dispose ()' (true) function or
+        /// 'Finalizer ()' (false) function.</param>
+        private void Dispose(bool dispose)
+        {
             if (isDisposed)
             {
                 return;
@@ -47,13 +69,18 @@ namespace _01IDisposable
 
             //cleaning
 
-            //release an instance using a managed IDisposable interface
-            fileStream.Dispose();
-            fileStream = null;
+            if (dispose)
+            { //it is called from the 'Dispose ()' function, so the managed parts have to be cleaned.
+ 
+                //release an instance using a managed IDisposable interface
+                fileStream.Dispose();
+                fileStream = null;
 
-            //release a managed memory
-            managedMemory.Clear();
-            managedMemory = null;
+                //release a managed memory
+                managedMemory.Clear();
+                managedMemory = null;
+
+            }
 
             //release an unmanaged memory
             Marshal.FreeHGlobal(unmanagedMemory);
@@ -61,11 +88,6 @@ namespace _01IDisposable
             GC.RemoveMemoryPressure(1000000);
 
             isDisposed = true;
-        }
-
-        ~ItselfCleaner()
-        {
-            Dispose();
         }
     }
 }
