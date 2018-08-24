@@ -9,16 +9,19 @@ namespace _01IEnumerableT
     /// 
     /// You can use any type of data using a generic definition. (strictly standard mode)
     /// </summary>
-    public class CyclableData
+    /// <typeparam name="TData">
+    /// Storing and maintaining data type like this. It must be given at building time.
+    /// </typeparam>
+    public class CyclableData<TData>
     {
-        List<Data> datasets = new List<Data>();
+        List<TData> datasets = new List<TData>();
 
         #region Data maintenance interface.
         /// <summary>
         /// It adds an item (Data) to our list.
         /// </summary>
         /// <param name="data"></param>
-        public void Add(Data data)
+        public void Add(TData data)
         {
             datasets.Add(data);
         }
@@ -28,7 +31,7 @@ namespace _01IEnumerableT
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public bool Remove(Data data)
+        public bool Remove(TData data)
         {
             return datasets.Remove(data);
         }
