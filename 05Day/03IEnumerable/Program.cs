@@ -50,6 +50,7 @@ namespace _03IEnumerable
             var shoppingList = new List<string>() { "1 kg steak", "salt", "1 kg potato", "1 kg flour" };
             foreach (var item in shoppingList)
             {   //we delete the items, the List changes ==>  it causes a foul (Exception)
+                //System.InvalidOperationException: 'Collection was modified; enumeration operation may not execute.'
                 shoppingList.Remove(item);
             }
 
