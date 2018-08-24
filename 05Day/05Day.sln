@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01IDisposable", "01IDisposable\01IDisposable.csproj", "{09D957AC-813E-4F23-AAB3-A0B6F7053A09}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01IDisposable", "01IDisposable\01IDisposable.csproj", "{09D957AC-813E-4F23-AAB3-A0B6F7053A09}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02IEnumerable", "02IEnumerable\02IEnumerable.csproj", "{48F360BC-2B9B-410A-AC9C-70AE11761DCF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "02IEnumerable", "02IEnumerable\02IEnumerable.csproj", "{48F360BC-2B9B-410A-AC9C-70AE11761DCF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03IEnumerable", "03IEnumerable\03IEnumerable.csproj", "{59F29223-CD15-4D71-9DAC-6B19ACD58E1A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{48F360BC-2B9B-410A-AC9C-70AE11761DCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{48F360BC-2B9B-410A-AC9C-70AE11761DCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{48F360BC-2B9B-410A-AC9C-70AE11761DCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59F29223-CD15-4D71-9DAC-6B19ACD58E1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59F29223-CD15-4D71-9DAC-6B19ACD58E1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59F29223-CD15-4D71-9DAC-6B19ACD58E1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59F29223-CD15-4D71-9DAC-6B19ACD58E1A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
