@@ -21,6 +21,7 @@ namespace _01IEnumerableT
     public class CyclableData<TData> : IEnumerable<TData>, IEnumerator<TData>
     {
         List<TData> datasets = new List<TData>();
+        int position = -1;
 
         #region Data maintenance interface.
         /// <summary>
@@ -45,11 +46,20 @@ namespace _01IEnumerableT
 
 
         #region IEnumerable<TData> implementation
+
+        /// <summary>
+        /// The crawler is also implemented by this class so we can return with 'this' instance.
+        /// </summary>
+        /// <returns>CyclableData instance, which contains the simple datas.</returns>
         public IEnumerator<TData> GetEnumerator()
         {
             return this;
         }
 
+        /// <summary>
+        /// The 'IEnumerator' prefix helps distinguish between the same property getter of two surface.
+        /// </summary>
+        /// <returns></returns>
         IEnumerator IEnumerable.GetEnumerator()
         {
             return this;
@@ -58,13 +68,24 @@ namespace _01IEnumerableT
 
 
         #region IEnumerator<TData> implementation
-        public TData Current => throw new NotImplementedException();
 
-        object IEnumerator.Current => throw new NotImplementedException();
+        /// <summary>
+        /// It returns with the actual item.
+        /// </summary>
+        public TData Current { get { return datasets[position]; } }
+
+        /// <summary>
+        /// Because the function is already implemented generically, you just have to call it.
+        /// 
+        /// The 'IEnumerator' prefix helps distinguish between the same property getter of two surface.
+        /// </summary>
+        object IEnumerator.Current { get { return Current; } }
 
         public bool MoveNext()
         {
-            throw new NotImplementedException();
+            position++;
+
+            return position < datasets.Count;
         }
 
         public void Reset()
@@ -72,9 +93,13 @@ namespace _01IEnumerableT
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Because the generic class always contains another class type, it may be IDisposable and may not.
+        /// You can only prepare for this by implementing the IDisposable interface first.
+        /// </summary>
         public void Dispose()
         {
-            throw new NotImplementedException();
+            //because now we do not have to clean up, so we do not have to implement it.
         }
         #endregion IEnumerator<TData> implementation
     }

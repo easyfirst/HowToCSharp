@@ -15,6 +15,11 @@ namespace _01IEnumerableT
             datasets.Add(new Data(number: 3, text: "potato"));
             datasets.Add(new Data(number: 4, text: "red pepper"));
 
+            foreach (var item in datasets)
+            {
+                Console.WriteLine($"Data number {item.Number} , text: {item.Text}");
+            }
+
             Console.ReadLine();
         }
     }
