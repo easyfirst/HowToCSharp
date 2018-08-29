@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02Exceptions", "02Exceptions\02Exceptions.csproj", "{6D3C88F9-3B23-48D1-AB8B-988DA9D712CD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03ExceptionDotNetFramework", "03ExceptionDotNetFramework\03ExceptionDotNetFramework.csproj", "{3AC2A18C-AC0B-47B9-8A02-A13DD3CCEE2B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{6D3C88F9-3B23-48D1-AB8B-988DA9D712CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D3C88F9-3B23-48D1-AB8B-988DA9D712CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D3C88F9-3B23-48D1-AB8B-988DA9D712CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AC2A18C-AC0B-47B9-8A02-A13DD3CCEE2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AC2A18C-AC0B-47B9-8A02-A13DD3CCEE2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AC2A18C-AC0B-47B9-8A02-A13DD3CCEE2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AC2A18C-AC0B-47B9-8A02-A13DD3CCEE2B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
