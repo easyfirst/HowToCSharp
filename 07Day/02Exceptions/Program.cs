@@ -54,12 +54,13 @@ namespace _02Exceptions
             try
             {
                 Console.WriteLine("SubProgramTwo try starts");
+                throw new ConfuseCurrencyException("EUR should be transferred from this account, but the invoice contains HUF !");
                 Console.WriteLine("SubProgramTwo try ends.");
             }
             catch (Exception)
             {
                 Console.WriteLine("SubProgramTwo catch starts");
-                throw;
+                throw ;
                 Console.WriteLine("SubProgramTwo catch ends.");
             }
             finally
