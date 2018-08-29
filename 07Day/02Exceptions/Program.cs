@@ -7,8 +7,25 @@ namespace _02Exceptions
     /// </summary>
     class Program
     {
+        private static void CurrentDomain_FirstChanceException(object sender, System.Runtime.ExceptionServices.FirstChanceExceptionEventArgs e)
+        {
+            Console.WriteLine("--- FirstChanceException ---");
+            Console.WriteLine(e.Exception);
+            Console.WriteLine("--- FirstChanceException ---");
+        }
+
+        private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            Console.WriteLine($"--- UnhandledException --- IsTerminating: {e.IsTerminating}");
+            Console.WriteLine(((Exception)e.ExceptionObject).ToString());
+            Console.WriteLine("--- UnhandledException ---");
+        }
+
         static void Main(string[] args)
         {
+            AppDomain.CurrentDomain.FirstChanceException += CurrentDomain_FirstChanceException;
+
+            AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
             try
             {
                 Console.WriteLine("Main try starts");
