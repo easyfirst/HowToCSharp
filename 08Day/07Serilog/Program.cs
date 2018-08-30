@@ -15,6 +15,22 @@ namespace _07Serilog
                                             .WriteTo.File(".\\serilog.log")
                                             .CreateLogger();
 
+            try
+            {
+                LogTest();
+            }
+            catch (Exception ex)
+            {
+                Log.Fatal(ex, "Program terminated unsuccessfully.");
+            } finally
+            {
+                Log.CloseAndFlush();
+            }
+
+        }
+
+        private static void LogTest()
+        {
             var r = new Random();
             while (!Console.KeyAvailable) //It is running till a key is press down.
             {
