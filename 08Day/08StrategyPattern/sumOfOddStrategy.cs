@@ -8,6 +8,7 @@
 
         public int Process(int[] data)
         {
+            // Addition of odd numbers
             var sum = 0;
             foreach (var d in data)
             {

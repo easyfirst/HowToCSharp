@@ -12,6 +12,10 @@ namespace _08StrategyPattern
             this.data = data;
         }
 
+        /// <summary>
+        /// Addition of odd numbers
+        /// </summary>
+        /// <returns></returns>
         public int SumOfOdd()
         {
             var sum = 0;
@@ -30,6 +34,10 @@ namespace _08StrategyPattern
             return sum;
         }
 
+        /// <summary>
+        /// Addition of even numbers
+        /// </summary>
+        /// <returns></returns>
         public int ProductOfEven()
         {
             var prod = 1;
