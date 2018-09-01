@@ -10,6 +10,10 @@ namespace _09Delegate
         // - the name of function (This name can be used to refer to the function in the program.)
         // - the type of return value
         // - the arguments.
+        //
+        // The syntax for defining delegates looks like this:
+        //  delegate <return type> <delegate name>( <parameter list> );
+
         public delegate int ProcessDef(int[] data);
 
         public DataStoreWithDelegate(int[] data)
