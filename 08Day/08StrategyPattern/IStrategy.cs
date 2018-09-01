@@ -8,7 +8,7 @@ namespace _08StrategyPattern
     /// The "face" of all operations
     /// must be implemented for each (strategy) class the operation end function in this form.
     /// </summary>
-    interface IStrategy
+    public interface IStrategy
     {
         int Process(int[] dat);
     }

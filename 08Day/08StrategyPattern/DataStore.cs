@@ -35,7 +35,7 @@ namespace _08StrategyPattern
         }
 
         /// <summary>
-        /// Addition of even numbers
+        /// Multiplication of even numbers
         /// </summary>
         /// <returns></returns>
         public int ProductOfEven()
