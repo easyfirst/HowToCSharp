@@ -36,9 +36,11 @@ namespace _10DelegateExample
 
             /// I can handle previous operations as well,
             /// so put the calls to a list and pass the list.
-            DataStore.FuncDef processList = null;
+            DataStore.FuncDef processList;
 
-            store.ProcessData(processList);
+            // It is for testing if 'processList' is null :
+            //DataStore.FuncDef processList = null;
+            //store.ProcessData(processList);
 
             // for example:
             //processList = RemoveT;
