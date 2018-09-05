@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 namespace _10DelegateExample
 {
-    // Protecting delegate call list against a bad start value
 
     class Program
     {
@@ -37,7 +36,9 @@ namespace _10DelegateExample
 
             /// I can handle previous operations as well,
             /// so put the calls to a list and pass the list.
-            DataStore.FuncDef processList;
+            DataStore.FuncDef processList = null;
+
+            store.ProcessData(processList);
 
             // for example:
             //processList = RemoveT;

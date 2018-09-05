@@ -36,6 +36,30 @@ namespace _10DelegateExample
         /// </param>
         public void ProcessData(FuncDef processList)
         {
+            /// This is an option for protection against "null":
+            ///  It is not thread safe !
+            //if (processList == null)
+            //{
+            //    throw new ArgumentNullException(nameof(processList));
+            //}
+
+
+            /////////////////////////////////////////////////
+            // So it is worth using this instead of above code
+            /////////////////////////////////////////////////
+            // as a value type, the entire list is copied
+            var processListBackup = processList;
+            if (processListBackup == null)
+            { // Because this list is local, other threads can not access it, so its value
+              // (the value of the references in the function)
+              // does not change on other threads
+                throw new ArgumentNullException(nameof(processList));
+                // or we're doing nothing
+                //return;
+            }
+
+
+
             ///We have to use the 'for' cycle instead of the 'foreach' cycle,
             ///because inside the cycle of 'foreach' the item is not enable to modify.
             for (int i = 0; i < lines.Count; i++)
@@ -43,6 +67,19 @@ namespace _10DelegateExample
                 // We get the value fo the lines[i].
                 var item = lines[i];
 
+
+                // You can perform null tests just before the call:
+                // even in this form !!! :
+                // processList?.Invoke(ref item);
+                // This is the same as this one:
+                var procList = processList;
+                if (procList != null)
+                {
+                    processList(ref item);
+                }
+
+                
+                
                 // We send the item into the function.
                 processList(ref item);
 
