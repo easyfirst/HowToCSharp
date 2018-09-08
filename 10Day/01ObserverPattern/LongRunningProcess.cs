@@ -16,6 +16,11 @@ namespace _01ObserverPattern
         // A params parameter accepts zero or more arguments.
         public LongRunningProcess(params IMessage[] observers)
         {
+            // ?? operator: Null coalescing. For example: x ?? y  Evaluates to y if x is null, to x otherwise
+            // The ?? operator is called the null-coalescing operator and is used to define
+            // a default value for a nullable value types as well as reference types.
+            //
+            // It returns the left-hand operand if it is not null; otherwise it returns the right operand.
             this.observers = observers ?? throw new ArgumentNullException(nameof(observers)) ;
         }
 
