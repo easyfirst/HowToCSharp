@@ -13,7 +13,19 @@ namespace _01ObserverPattern
     {
         private readonly List<INotifiable> observers = new List<INotifiable>();
 
-        public int Data { get; set; }   // Implementing of IMessage
+        private int data;
+        public int Data        // Implementing of IMessage
+        {
+            get { return data; }
+            set
+            {
+                if (data == value) { return; } // If it has not changed then "do not panic"
+ 
+                data = value;
+                //todo: notify the curious participants (Observer)
+                SendMessage();
+            }
+        }
 
         // If you want to share more information with your listeners, you will need to add this to the interface and it will be ready.
         public string Text { get; set; }   // Implementing of IMessage
@@ -23,33 +35,27 @@ namespace _01ObserverPattern
         {
             Console.WriteLine("LongRunningProcess: 0%");
 
-            //todo: notify the curious participants (Observer)
             Data = 0;
-            SendMessage();
             Console.WriteLine();
 
             Thread.Sleep(1000);
             Console.WriteLine("LongRunningProcess: 25%");
             Data = 25;
-            SendMessage();
             Console.WriteLine();
 
             Thread.Sleep(1000);
             Console.WriteLine("LongRunningProcess: 50%");
             Data = 50;
-            SendMessage();
             Console.WriteLine();
 
             Thread.Sleep(1000);
             Console.WriteLine("LongRunningProcess: 75%");
             Data = 75;
-            SendMessage();
             Console.WriteLine();
 
             Thread.Sleep(1000);
             Console.WriteLine("LongRunningProcess: 100%");
             Data = 100;
-            SendMessage();
             Console.WriteLine();
         }
 
