@@ -16,6 +16,38 @@ namespace _11FuncActionLambda
                                                             //I do not check the definition of the call list 
             Console.WriteLine($"squar of 2: {squaringProcesslist(2)}");
 
+
+            //Task: How can we reduce this four steps ???
+
+            //////////////////////////////
+            //1. reduction step: a lambda
+            //////////////////////////////
+
+            //using lambda, you can reduce step 2.a / 2.b to one step
+
+            //The lambda expression (=>) a line function definition
+            //on the left side there is a list of parameters in parentheses separated by commas,
+            //and on the right there is a function body (tribe).
+
+            //the function name had to be a reference because the lambda was written there,
+            //where the function name is no longer needed
+
+            //if there are 1 parameters AND I use only one expression then no parentheses are needed () {}
+            squaringProcesslist = y => y * y;
+
+            //the same is in code block:
+            squaringProcesslist = (x) => { return x * x; };
+            //I can use any line in the code block:
+
+            squaringProcesslist = (integerNum) =>
+            {
+                Console.WriteLine($"I raise a square, parameter: {integerNum}");
+                return integerNum * integerNum;
+            };
+
+            Console.WriteLine($"square of 2: {squaringProcesslist(2)}");
+
+
             Console.ReadLine();
         }
         /// <summary>
