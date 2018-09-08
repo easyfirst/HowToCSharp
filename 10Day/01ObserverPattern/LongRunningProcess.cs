@@ -12,6 +12,8 @@ namespace _01ObserverPattern
     {
          private readonly IMessage[] observers;
 
+        // You can send a comma-separated list of arguments of the specified type.
+        // A params parameter accepts zero or more arguments.
         public LongRunningProcess(params IMessage[] observers)
         {
             this.observers = observers ?? throw new ArgumentNullException(nameof(observers)) ;
