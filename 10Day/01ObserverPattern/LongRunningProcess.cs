@@ -25,22 +25,22 @@ namespace _01ObserverPattern
 
             Thread.Sleep(1000);
             Console.WriteLine("LongRunningProcess: 25%");
-            SendMessage(0);
+            SendMessage(25);
             Console.WriteLine();
 
             Thread.Sleep(1000);
             Console.WriteLine("LongRunningProcess: 50%");
-            SendMessage(0);
+            SendMessage(50);
             Console.WriteLine();
 
             Thread.Sleep(1000);
             Console.WriteLine("LongRunningProcess: 75%");
-            SendMessage(0);
+            SendMessage(75);
             Console.WriteLine();
 
             Thread.Sleep(1000);
             Console.WriteLine("LongRunningProcess: 100%");
-            SendMessage(0);
+            SendMessage(100);
             Console.WriteLine();
         }
 
