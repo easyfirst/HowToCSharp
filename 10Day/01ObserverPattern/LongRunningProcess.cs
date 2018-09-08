@@ -13,33 +13,42 @@ namespace _01ObserverPattern
     {
         private readonly List<INotifiable> observers = new List<INotifiable>();
 
-        
+        public int Data { get; set; }   // Implementing of IMessage
+
+        // If you want to share more information with your listeners, you will need to add this to the interface and it will be ready.
+        public string Text { get; set; }   // Implementing of IMessage
+
 
         public void Start()
         {
             Console.WriteLine("LongRunningProcess: 0%");
 
             //todo: notify the curious participants (Observer)
+            Data = 0;
             SendMessage();
             Console.WriteLine();
 
             Thread.Sleep(1000);
             Console.WriteLine("LongRunningProcess: 25%");
+            Data = 25;
             SendMessage();
             Console.WriteLine();
 
             Thread.Sleep(1000);
             Console.WriteLine("LongRunningProcess: 50%");
+            Data = 50;
             SendMessage();
             Console.WriteLine();
 
             Thread.Sleep(1000);
             Console.WriteLine("LongRunningProcess: 75%");
+            Data = 75;
             SendMessage();
             Console.WriteLine();
 
             Thread.Sleep(1000);
             Console.WriteLine("LongRunningProcess: 100%");
+            Data = 100;
             SendMessage();
             Console.WriteLine();
         }
