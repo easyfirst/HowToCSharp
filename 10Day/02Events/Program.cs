@@ -23,11 +23,18 @@ namespace _01ObserverPattern
 
             /// Problems:
             /// 
-            ///  1. I can initialize the call list from the outside
-            ///  process.ObserversCallList = null;
+            /// 1. I can initialize the call list from the outside
+            /// process.ObserversCallList = null;
             ///  
+            /// The builder already does not allow this by event:
+            /// process.DataChanged = null;
+            /// 
             /// 2. I can call the call list from outside
             /// process.ObserversCallList(new LongRunningProcess());
+            /// 
+            /// The builder already does not allow this by event:
+            /// process.DataChanged(new LongRunningProcess(), "I cheated");
+
 
             process.Start();
 
