@@ -18,8 +18,8 @@ namespace _01ObserverPattern
             //the long-term process
             var process = new LongRunningProcess();
 
-            process.ObserversCallList += log.Message;
-            process.ObserversCallList += ui.Message;
+            process.DataChanged += log.Message;
+            process.DataChanged += ui.Message;
 
             /// Problems:
             /// 
@@ -31,8 +31,8 @@ namespace _01ObserverPattern
 
             process.Start();
 
-            process.ObserversCallList -= log.Message;
-            process.ObserversCallList -= ui.Message;
+            process.DataChanged -= log.Message;
+            process.DataChanged -= ui.Message;
 
             Console.WriteLine("The process is done.");
 

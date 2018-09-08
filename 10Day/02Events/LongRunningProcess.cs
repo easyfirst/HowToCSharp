@@ -9,13 +9,25 @@ namespace _01ObserverPattern
     /// This will notify the others if something happened.
     /// Observable / Observed Player (operator)
     /// </summary>
-    public class LongRunningProcess : IMessage
+    public class LongRunningProcess
     {
-        //We can call such a notification so we can let you call the call list.
-        public delegate void MessageDef(IMessage data);
+        // Defining the event
+        // at the same time
+        // 1. type definition and
+        // 2. declaration of the  call list variable
+        //
+        // This defines a special delegate:
+        // a.) only defines a void type function
+        // b.) can't call the call list from outside
+        // c.) can't initialize the call list from the outside
+        public event EventHandler<string> DataChanged;
 
-        // this is our call list:
-        public MessageDef ObserversCallList;
+        // The function has two parameters in each case:
+        // if the definition is EventHandler <T> then:
+        // object sender,
+        // and
+        // T e
+        // The first is mandatory, the second is designated by the generic parameter.
 
         private int data;
         public int Data        // Implementing of IMessage
@@ -68,10 +80,10 @@ namespace _01ObserverPattern
         /// </summary>
         private void SendMessage()
         {
-            var callList = ObserversCallList;
+            var callList = DataChanged;
             if (callList != null)
             {
-                callList(this);
+                callList(this, "Oops, this is the event");
             }
 
             //faster solution:
