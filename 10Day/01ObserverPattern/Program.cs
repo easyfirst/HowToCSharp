@@ -16,16 +16,15 @@ namespace _01ObserverPattern
             var ui = new UserInterface();
 
             //the long-term process
-            var process = new LongRunningProcess(log, ui);
+            var process = new LongRunningProcess();
 
-            // So you can use the function, thanks for the keyword "params":
-            //process = new LongRunningProcess();
-            //process = new LongRunningProcess(log);
-            //process = new LongRunningProcess(log, ui, log, log);
-
-
+            process.Subscribe(log);
+            process.Subscribe(ui);
 
             process.Start();
+
+            process.Unsubscribe(log);
+            process.Unsubscribe(ui);
 
             Console.WriteLine("The process is done.");
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 
 namespace _01ObserverPattern
@@ -10,19 +11,9 @@ namespace _01ObserverPattern
     /// </summary>
     public class LongRunningProcess
     {
-         private readonly IMessage[] observers;
+        private readonly List<IMessage> observers = new List<IMessage>();
 
-        // You can send a comma-separated list of arguments of the specified type.
-        // A params parameter accepts zero or more arguments.
-        public LongRunningProcess(params IMessage[] observers)
-        {
-            // ?? operator: Null coalescing. For example: x ?? y  Evaluates to y if x is null, to x otherwise
-            // The ?? operator is called the null-coalescing operator and is used to define
-            // a default value for a nullable value types as well as reference types.
-            //
-            // It returns the left-hand operand if it is not null; otherwise it returns the right operand.
-            this.observers = observers ?? throw new ArgumentNullException(nameof(observers)) ;
-        }
+        
 
         public void Start()
         {
@@ -51,6 +42,24 @@ namespace _01ObserverPattern
             Console.WriteLine("LongRunningProcess: 100%");
             SendMessage(0);
             Console.WriteLine();
+        }
+
+        /// <summary>
+        /// Subscribing to the list of observers.
+        /// </summary>
+        /// <param name="observer">Subscribe class</param>
+        public void Subscribe(IMessage observer)
+        {
+            observers.Add(observer);
+        }
+
+        /// <summary>
+        /// Unsubscribing to the list of observers.
+        /// </summary>
+        /// <param name="observer">Unsubscribe class</param>
+        public void Unsubscribe(IMessage observer)
+        {
+            observers.Remove(observer);
         }
 
         /// <summary>
