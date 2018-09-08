@@ -20,7 +20,6 @@ namespace _01ObserverPattern
         // a.) only defines a void type function
         // b.) can't call the call list from outside
         // c.) can't initialize the call list from the outside
-        public event EventHandler<string> DataChanged;
 
         // The function has two parameters in each case:
         // if the definition is EventHandler <T> then:
@@ -28,6 +27,12 @@ namespace _01ObserverPattern
         // and
         // T e
         // The first is mandatory, the second is designated by the generic parameter.
+
+        // If I do not want to highlight a parameter then it is an empty definition,
+        // public event EventHandler<EventArgs> DataChanged;
+
+        // otherwise you have to define Dto, which is derived from EventArgs
+        public event EventHandler<EventDto> DataChanged;
 
         private int data;
         public int Data        // Implementing of IMessage
@@ -75,19 +80,31 @@ namespace _01ObserverPattern
             Console.WriteLine();
         }
 
-         /// <summary>
-        /// It will notify all observers.
+        /// <summary>
+        /// We enclose the calling event list into a private function.
         /// </summary>
-        private void SendMessage()
+        /// <param name="data"></param>
+        private void OnDataChanged(int data)
         {
             var callList = DataChanged;
             if (callList != null)
             {
-                callList(this, "Oops, this is the event");
+                // If there is no priority parameter, we call this in this way:
+                //callList(this, EventArgs.Empty);
+
+                callList(this, new EventDto(data));
             }
 
             //faster solution:
             //ObserversCallList?.Invoke(this);
+        }
+
+        /// <summary>
+        /// It will notify all observers.
+        /// </summary>
+        private void SendMessage()
+        {
+            OnDataChanged(Data);
         }
     }
 }
