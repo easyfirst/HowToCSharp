@@ -2,7 +2,7 @@
 
 namespace _01ObserverPattern
 {
-    public class UserInterface : INotifiable
+    public class UserInterface
     {
         public void Message(IMessage data)
         {

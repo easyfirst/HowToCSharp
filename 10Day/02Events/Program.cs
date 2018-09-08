@@ -18,13 +18,13 @@ namespace _01ObserverPattern
             //the long-term process
             var process = new LongRunningProcess();
 
-            process.Subscribe(log);
-            process.Subscribe(ui);
+            process.ObserversCallList += log.Message;
+            process.ObserversCallList += ui.Message;
 
             process.Start();
 
-            process.Unsubscribe(log);
-            process.Unsubscribe(ui);
+            process.ObserversCallList -= log.Message;
+            process.ObserversCallList -= ui.Message;
 
             Console.WriteLine("The process is done.");
 

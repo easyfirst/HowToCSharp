@@ -2,7 +2,7 @@
 
 namespace _01ObserverPattern
 {
-    public class Logger : INotifiable
+    public class Logger
     {
         public void Message(IMessage data)
         {

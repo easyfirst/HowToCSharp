@@ -11,7 +11,11 @@ namespace _01ObserverPattern
     /// </summary>
     public class LongRunningProcess : IMessage
     {
-        private readonly List<INotifiable> observers = new List<INotifiable>();
+        //We can call such a notification so we can let you call the call list.
+        public delegate void MessageDef(IMessage data);
+
+        // this is our call list:
+        public MessageDef ObserversCallList;
 
         private int data;
         public int Data        // Implementing of IMessage
@@ -59,33 +63,19 @@ namespace _01ObserverPattern
             Console.WriteLine();
         }
 
-        /// <summary>
-        /// Subscribing to the list of observers.
-        /// </summary>
-        /// <param name="observer">Subscribe class</param>
-        public void Subscribe(INotifiable observer)
-        {
-            observers.Add(observer);
-        }
-
-        /// <summary>
-        /// Unsubscribing to the list of observers.
-        /// </summary>
-        /// <param name="observer">Unsubscribe class</param>
-        public void Unsubscribe(INotifiable observer)
-        {
-            observers.Remove(observer);
-        }
-
-        /// <summary>
+         /// <summary>
         /// It will notify all observers.
         /// </summary>
         private void SendMessage()
         {
-            foreach (var observer in observers)
+            var callList = ObserversCallList;
+            if (callList != null)
             {
-                observer.Message(this);
+                callList(this);
             }
+
+            //faster solution:
+            //ObserversCallList?.Invoke(this);
         }
     }
 }
