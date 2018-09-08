@@ -9,9 +9,9 @@ namespace _01ObserverPattern
     /// This will notify the others if something happened.
     /// Observable / Observed Player (operator)
     /// </summary>
-    public class LongRunningProcess
+    public class LongRunningProcess : IMessage
     {
-        private readonly List<IMessage> observers = new List<IMessage>();
+        private readonly List<INotifiable> observers = new List<INotifiable>();
 
         
 
@@ -20,27 +20,27 @@ namespace _01ObserverPattern
             Console.WriteLine("LongRunningProcess: 0%");
 
             //todo: notify the curious participants (Observer)
-            SendMessage(0);
+            SendMessage();
             Console.WriteLine();
 
             Thread.Sleep(1000);
             Console.WriteLine("LongRunningProcess: 25%");
-            SendMessage(25);
+            SendMessage();
             Console.WriteLine();
 
             Thread.Sleep(1000);
             Console.WriteLine("LongRunningProcess: 50%");
-            SendMessage(50);
+            SendMessage();
             Console.WriteLine();
 
             Thread.Sleep(1000);
             Console.WriteLine("LongRunningProcess: 75%");
-            SendMessage(75);
+            SendMessage();
             Console.WriteLine();
 
             Thread.Sleep(1000);
             Console.WriteLine("LongRunningProcess: 100%");
-            SendMessage(100);
+            SendMessage();
             Console.WriteLine();
         }
 
@@ -48,7 +48,7 @@ namespace _01ObserverPattern
         /// Subscribing to the list of observers.
         /// </summary>
         /// <param name="observer">Subscribe class</param>
-        public void Subscribe(IMessage observer)
+        public void Subscribe(INotifiable observer)
         {
             observers.Add(observer);
         }
@@ -57,7 +57,7 @@ namespace _01ObserverPattern
         /// Unsubscribing to the list of observers.
         /// </summary>
         /// <param name="observer">Unsubscribe class</param>
-        public void Unsubscribe(IMessage observer)
+        public void Unsubscribe(INotifiable observer)
         {
             observers.Remove(observer);
         }
@@ -65,12 +65,11 @@ namespace _01ObserverPattern
         /// <summary>
         /// It will notify all observers.
         /// </summary>
-        /// <param name="data">The information what is needed to be sent</param>
-        private void SendMessage(int data)
+        private void SendMessage()
         {
             foreach (var observer in observers)
             {
-                observer.Message(data);
+                observer.Message(this);
             }
         }
     }
