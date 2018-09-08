@@ -10,13 +10,11 @@ namespace _01ObserverPattern
     /// </summary>
     public class LongRunningProcess
     {
-        private IMessage log;
-        private IMessage ui;
+         private readonly IMessage[] observers;
 
-        public LongRunningProcess(IMessage log, IMessage ui)
+        public LongRunningProcess(params IMessage[] observers)
         {
-            this.log = log;
-            this.ui = ui;
+            this.observers = observers ?? throw new ArgumentNullException(nameof(observers)) ;
         }
 
         public void Start()
@@ -24,33 +22,40 @@ namespace _01ObserverPattern
             Console.WriteLine("LongRunningProcess: 0%");
 
             //todo: notify the curious participants (Observer)
-            log.Message(0);
-            ui.Message(0);
+            SendMessage(0);
             Console.WriteLine();
 
             Thread.Sleep(1000);
             Console.WriteLine("LongRunningProcess: 25%");
-            log.Message(25);
-            ui.Message(25);
+            SendMessage(0);
             Console.WriteLine();
 
             Thread.Sleep(1000);
             Console.WriteLine("LongRunningProcess: 50%");
-            log.Message(50);
-            ui.Message(50);
+            SendMessage(0);
             Console.WriteLine();
 
             Thread.Sleep(1000);
             Console.WriteLine("LongRunningProcess: 75%");
-            log.Message(75);
-            ui.Message(75);
+            SendMessage(0);
             Console.WriteLine();
 
             Thread.Sleep(1000);
             Console.WriteLine("LongRunningProcess: 100%");
-            log.Message(100);
-            ui.Message(100);
+            SendMessage(0);
             Console.WriteLine();
+        }
+
+        /// <summary>
+        /// It will notify all observers.
+        /// </summary>
+        /// <param name="data">The information what is needed to be sent</param>
+        private void SendMessage(int data)
+        {
+            foreach (var observer in observers)
+            {
+                observer.Message(data);
+            }
         }
     }
 }
