@@ -85,7 +85,22 @@ namespace _01LocalData
             //Detailed File and Directory Information:
             //provides the FileInfo and the DirectoryInfo 
             var info = new FileInfo(fileName);
-            Console.WriteLine($"This is a directoty: {info.Attributes.HasFlag(FileAttributes.Directory)}");
+            Console.WriteLine($"This is a directoty ?: {info.Attributes.HasFlag(FileAttributes.Directory)}\n");
+
+
+            //using stream
+            Console.WriteLine($"Using Stream basic level \n Reading stream from :{fileName}");
+            using (var fs = new FileStream(fileName, FileMode.Open))
+            {
+                using (var sr = new StreamReader(fs, Encoding.UTF8))
+                {
+                    while (!sr.EndOfStream)
+                    {
+                        var text = sr.ReadLine();
+                        Console.WriteLine(text);
+                    }
+                }
+            }
 
             Console.ReadLine();
         }
