@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
@@ -30,12 +31,26 @@ namespace _02SerializeDeserialze
 
             var fileName = "data.txt";
 
+            // writing data :
             var serializer = new XmlSerializer(typeof(DataList));
-
             using (var fs = new FileStream(fileName, FileMode.Create))
             {
                 serializer.Serialize(fs, dataList);
             }
+
+
+
+            // reading data
+            using (var fs = new FileStream(fileName, FileMode.Open))
+            {
+                var readed = serializer.Deserialize(fs);
+                Console.WriteLine($"number of rows: {((DataList)readed).Data.Count}");
+                //Console.WriteLine(readed);
+                // NuGet: Newtonsoft.Json (11.0.2)
+                Console.WriteLine(JsonConvert.SerializeObject(readed, Formatting.Indented));
+            }
+
+            Console.ReadLine();
         }
     }
 	        
