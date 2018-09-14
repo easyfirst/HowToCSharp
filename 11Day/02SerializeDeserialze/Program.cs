@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Xml.Serialization;
 
 namespace _02SerializeDeserialze
 {
@@ -25,27 +27,36 @@ namespace _02SerializeDeserialze
             dataList.Data.Add(data);
             dataList.Data.Add(data);
 
-            Console.WriteLine("Hello World!");
-        }
 
+            var fileName = "data.txt";
 
-        public class DataClass
-        {
-            public int Integer { get; set; }
-            public double Double { get; set; }
-            public DateTime DateTime { get; set; }
-            public string Text { get; set; }
-        }
+            var serializer = new XmlSerializer(typeof(DataList));
 
-
-        public class DataList
-        {
-            public DataList()
+            using (var fs = new FileStream(fileName, FileMode.Create))
             {
-                Data = new List<DataClass>();
+                serializer.Serialize(fs, dataList);
             }
-            public List<DataClass> Data { get; set; }
-            public DataClass DataClass { get; set; }
         }
+    }
+	        
+
+
+    public class DataClass
+    {
+        public int Integer { get; set; }
+        public double Double { get; set; }
+        public DateTime DateTime { get; set; }
+        public string Text { get; set; }
+    }
+
+
+    public class DataList
+    {
+        public DataList()
+        {
+            Data = new List<DataClass>();
+        }
+        public List<DataClass> Data { get; set; }
+        public DataClass DataClass { get; set; }
     }
 }
