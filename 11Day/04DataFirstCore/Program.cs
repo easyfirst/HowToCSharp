@@ -1,4 +1,6 @@
-﻿using System;
+﻿using _04DataFirstCore.Models;
+using System;
+using System.Linq;
 
 namespace _04DataFirstCore
 {
@@ -6,7 +8,11 @@ namespace _04DataFirstCore
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var db = new CodeFirstDBContext();
+
+            Console.WriteLine($"The number of teachers: {db.Teachers.Count()}, The number of subjects: {db.Subjects.Count()}");
+
+            Console.ReadLine();
         }
     }
 }
