@@ -8,6 +8,55 @@ namespace _02Tasks
     {
         static void Main(string[] args)
         {
+            // Focusing to the statuses of task
+            //Test1();
+
+            // Catching exceptions
+            Test2();
+
+            Console.ReadLine();
+        }
+
+        private static void Test2()
+        {
+            Action todo = () =>
+            {
+                for (int i = 0; i < 10; i++)
+                {
+                    Console.WriteLine($"i: {i}");
+                    Thread.Sleep(100);
+                }
+                throw new StackOverflowException();
+            };
+
+            var task = new Task(todo);
+            task.Start();
+
+
+            //To get the exception, we have to wait for the task !!!
+            try
+            {
+                task.Wait();
+            }
+            catch (AggregateException ex)
+            {
+                // The Flatten() extends the complicated exception tree
+                Console.WriteLine("The Flatten() extends the complicated exception tree:");
+                Console.WriteLine(ex.Flatten().Message);
+                Console.WriteLine();
+
+                //or 
+
+                Console.WriteLine(" ... or we can write the InnerExceptions with foreach:");
+                foreach (var e in ex.InnerExceptions)
+                {
+                    Console.WriteLine(e.Message);
+                }
+            }
+        }
+
+        private static void Test1()
+        {
             Action todo = () =>
             {
                 for (int i = 0; i < 10; i++)
@@ -31,8 +80,6 @@ namespace _02Tasks
             task.Wait(); // waiting till the end of task
 
             Console.WriteLine($"Status: {task.Status}");
-
-            Console.ReadLine();
 
             //Status: Created
             //Status: WaitingToRun
