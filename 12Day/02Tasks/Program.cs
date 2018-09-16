@@ -6,15 +6,67 @@ namespace _02Tasks
 {
     class Program
     {
+        // To test this functions You have to run this code with Ctrl + F5 !!!
+
         static void Main(string[] args)
         {
             // Focusing to the statuses of task
             //Test1();
 
             // Catching exceptions
-            Test2();
+            //Test2();
+
+            // Task cancel
+            Test3();
 
             Console.ReadLine();
+        }
+
+        private static void Test3()
+        {
+            var cts = new CancellationTokenSource(); //1. this is a radio station that the task will take while driving
+
+            Action todo = () =>
+            {
+                for (int i = 0; i < 10; i++)
+                {
+                    if (cts.Token.IsCancellationRequested)
+                    { // 3.a if we have issued the cancel, then we can validate or clean it here, see. IDisposable
+                        Console.WriteLine($"{i}: We got Cancel");
+                    }
+
+                    cts.Token.ThrowIfCancellationRequested(); //3.b with this will leave the task running
+
+                    Console.WriteLine($"i: {i}");
+                    Thread.Sleep(100);
+                }
+            };
+            
+            var task = new Task(todo, cts.Token); //2. we transfer the radio station to the task so that we can stop it later
+
+            task.Start();
+            Thread.Sleep(200);
+
+            Console.WriteLine("We stop the task");
+
+            cts.Cancel(); // we shut down the task with this command
+
+            try
+            {
+                task.Wait(); //4. you have to wait for the end of the task
+            }
+            catch (AggregateException ex)
+            {
+                //5. have to deal with the cancelt!
+                foreach (var e in ex.InnerExceptions)
+                {
+                    Console.WriteLine($"Exception {e.Message}");
+                    if (e is TaskCanceledException)
+                    {
+                        Console.WriteLine("Cancel has occurred");
+                    }
+                }
+            }
         }
 
         private static void Test2()
